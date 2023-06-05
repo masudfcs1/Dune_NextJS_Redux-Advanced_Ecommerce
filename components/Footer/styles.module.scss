@@ -46,4 +46,22 @@
       }
     }
   }
+  &__flex {
+    display: flex;
+    margin-top: 10px;
+  }
+  &__newsletter {
+    input {
+      outline: none;
+      border: 1px solid #999;
+      flex: 1;
+      height: 40px;
+      font-size: 14px;
+      padding-left: 10px;
+    }
+    button {
+      width: 150px;
+      cursor: pointer;
+    }
+  }
 }
