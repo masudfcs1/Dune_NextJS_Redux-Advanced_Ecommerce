@@ -2,6 +2,11 @@ import React from "react";
 import styles from "./styles.module.scss";
 import { MdSecurity } from "react-icons/md";
 import { BsSuitHeart } from "react-icons/bs";
+import {
+  RiAccountCircleFill,
+  RiAccountPinCircleLine,
+  RiArrowDropDownFill,
+} from "react-icons/ri";
 
 const Top = () => {
   return (
@@ -29,6 +34,14 @@ const Top = () => {
               <BsSuitHeart />
               Whishlist
             </span>
+          </li>
+          <li>
+            {" "}
+            <div className={styles.flex}>
+              <RiAccountPinCircleLine />
+              <span>Account</span>
+              <RiArrowDropDownFill />
+            </div>
           </li>
         </ul>
       </div>
