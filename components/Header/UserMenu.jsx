@@ -3,11 +3,11 @@ import React from "react";
 import styles from "./styles.module.scss";
 import Link from "next/link";
 
-const UserMenu = ({ loggIn }) => {
+const UserMenu = ({ loggedIn }) => {
   return (
     <div className={styles.menu}>
       <h4>Welcome to Duneshop!</h4>
-      {loggIn ? (
+      {loggedIn ? (
         <div className={styles.flex}>
           <img
             src="https://avatars.githubusercontent.com/u/57311382?v=4"

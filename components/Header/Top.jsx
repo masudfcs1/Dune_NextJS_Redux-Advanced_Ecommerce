@@ -13,7 +13,7 @@ import Link from "next/link";
 import UserMenu from "./UserMenu";
 
 const Top = () => {
-  const [loggedIn, setloggedIn] = useState(false);
+  const [loggedIn, setloggedIn] = useState(true);
 
   return (
     <div className={styles.top}>
@@ -65,7 +65,7 @@ const Top = () => {
                 </div>
               </li>
             )}
-            <UserMenu LoggedIn={loggedIn} />
+            <UserMenu loggedIn={loggedIn} />
           </li>
         </ul>
       </div>
