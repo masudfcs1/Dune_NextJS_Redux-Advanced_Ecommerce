@@ -125,4 +125,19 @@
       }
     }
   }
+  &__img {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  .col {
+    display: flex;
+    flex-direction: column;
+    span {
+      &:last-of-type {
+        font-size: 14px;
+        color: $blue-color;
+        text-decoration: underline;
+      }
+    }
+  }
 }

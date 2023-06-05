@@ -6,7 +6,7 @@ import Link from "next/link";
 const UserMenu = ({ loggedIn }) => {
   return (
     <div className={styles.menu}>
-      <h4>Welcome to Duneshop!</h4>
+      <h4>Welcome to Duneshop !</h4>
       {loggedIn ? (
         <div className={styles.flex}>
           <img
@@ -14,7 +14,7 @@ const UserMenu = ({ loggedIn }) => {
             alt=""
             className={styles.menu__img}
           />
-          <div>
+          <div className={styles.col}>
             <span>Welcome Back,</span>
             <h3>Masud Rana</h3>
             <span>Sign out</span>
