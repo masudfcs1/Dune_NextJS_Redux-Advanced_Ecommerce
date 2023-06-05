@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title> Dune </title>{" "}
+        <title> Dune Fast Online Shopping </title>{" "}
         <meta
           name="description"
           content="Dune-online shopping service for all of your need"
