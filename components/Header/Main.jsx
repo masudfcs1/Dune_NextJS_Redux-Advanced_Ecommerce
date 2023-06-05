@@ -3,8 +3,10 @@ import { RiSearch2Fill } from "react-icons/ri";
 import { FaOpencart } from "react-icons/fa";
 import styles from "./styles.module.scss";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const Main = () => {
+  const { cart } = useSelector((state) => ({ ...state }));
   return (
     <div className={styles.main}>
       <div className={styles.main__container}>
@@ -23,6 +25,7 @@ const Main = () => {
         <Link href="/cart" legacyBehavior>
           <a className={styles.cart}>
             <FaOpencart />
+            <span>0</span>
           </a>
         </Link>
       </div>
