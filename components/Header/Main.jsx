@@ -11,14 +11,14 @@ const Main = () => {
     <div className={styles.main}>
       <div className={styles.main__container}>
         <Link href="/" legacyBehavior>
-          <a className={styles}>
+          <a className={styles.logo}>
             {" "}
             <img src="../../public/logo.png" alt="" />
           </a>
         </Link>
-        <div className={styles.serch}>
+        <div className={styles.search}>
           <input type="text" placeholder="Search Your ..." />
-          <div className={styles.secrch__icon}>
+          <div className={styles.search__icon}>
             <RiSearch2Fill />
           </div>
         </div>
