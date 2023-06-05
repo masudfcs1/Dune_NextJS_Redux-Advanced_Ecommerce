@@ -12,7 +12,7 @@ import { Img } from "../../public/images/bang.png";
 import Link from "next/link";
 import UserMenu from "./UserMenu";
 
-const Top = () => {
+const Top = ({ country }) => {
   const [loggedIn, setloggedIn] = useState(true);
   const [visible, setvisible] = useState(false);
 
@@ -22,12 +22,9 @@ const Top = () => {
         <div></div>
         <ul className={styles.top__list}>
           <li className={styles.li}>
-            <img
-              src="https://cdn.pixabay.com/photo/2013/07/13/14/14/bangladesh-162238_1280.png"
-              alt="image"
-            />
+            <img src={country.flag} alt="image" />
 
-            <span>Bangladesh/usd</span>
+            <span>{country.name}/usd</span>
           </li>
           <li className={styles.li}>
             <MdSecurity />

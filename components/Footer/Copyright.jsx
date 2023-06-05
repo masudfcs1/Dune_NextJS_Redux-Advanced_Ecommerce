@@ -17,7 +17,7 @@ const Copyright = ({ country }) => {
           ))}
           <li>
             <a>
-              <IoLocationSharp /> Bangladesh
+              <IoLocationSharp /> {country.name}
             </a>
           </li>
         </ul>
