@@ -20,7 +20,7 @@ const Top = () => {
       <div className={styles.top__container}>
         <div></div>
         <ul className={styles.top__list}>
-          <li>
+          <li className={styles.li}>
             <img
               src="https://cdn.pixabay.com/photo/2013/07/13/14/14/bangladesh-162238_1280.png"
               alt="image"
@@ -28,23 +28,23 @@ const Top = () => {
 
             <span>Bangladesh/usd</span>
           </li>
-          <li>
+          <li className={styles.li}>
             <MdSecurity />
             <span>Buyer Protection</span>
           </li>
-          <li>
+          <li className={styles.li}>
             <span>Customer Service </span>
           </li>
-          <li>
+          <li className={styles.li}>
             <span>Help</span>
           </li>
-          <li>
+          <li className={styles.li}>
             <BsSuitHeart />
             <Link href="/profile/whishlist">
               <span>Whishlist</span>
             </Link>
           </li>
-          <li>
+          <li className={styles.li}>
             {loggedIn ? (
               <li>
                 <div className={styles.flex}>
