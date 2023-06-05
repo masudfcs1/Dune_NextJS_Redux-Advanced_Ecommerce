@@ -4,6 +4,7 @@ import Links from "./Links";
 import Socials from "./Socials";
 import NewsLetter from "./NewsLetter";
 import Payment from "./Payment";
+import Copyright from "./Copyright";
 
 const index = () => {
   return (
@@ -13,6 +14,7 @@ const index = () => {
         <Socials />
         <NewsLetter />
         <Payment />
+        <Copyright />
       </div>
     </footer>
   );
