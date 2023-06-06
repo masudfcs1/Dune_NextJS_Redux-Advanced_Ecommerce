@@ -13,7 +13,7 @@ export default function Home({ country }) {
   return (
     <div>
       <Header country={country} />{" "}
-      {session ? "Your are Logged In" : "Your are Not Logged In"}{" "}
+      {/* {session ? "Your are Logged In" : "Your are Not Logged In"}{" "} */}{" "}
       <Footer country={country} />{" "}
     </div>
   );
