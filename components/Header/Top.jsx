@@ -11,9 +11,10 @@ import {
 import { Img } from "../../public/images/bang.png";
 import Link from "next/link";
 import UserMenu from "./UserMenu";
+import { useSession } from "next-auth/react";
 
 const Top = ({ country }) => {
-  const [loggedIn, setloggedIn] = useState(true);
+  const { data: session } = useSession();
   const [visible, setvisible] = useState(false);
 
   return (
@@ -47,14 +48,11 @@ const Top = ({ country }) => {
             onMouseLeave={() => setvisible(false)}
             onMouseOver={() => setvisible(true)}
           >
-            {loggedIn ? (
+            {session ? (
               <li>
                 <div className={styles.flex}>
-                  <img
-                    src="https://avatars.githubusercontent.com/u/57311382?v=4"
-                    alt=""
-                  />
-                  <span>Mausd Rana</span>
+                  <img src={session.user.image} alt="" />
+                  <span> {session.user.name} </span>
                   <RiArrowDropDownFill />
                 </div>
               </li>
@@ -67,7 +65,7 @@ const Top = ({ country }) => {
                 </div>
               </li>
             )}
-            {visible && <UserMenu loggedIn={loggedIn} />}
+            {visible && <UserMenu session={session} />}
           </li>
         </ul>
       </div>
