@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 370px;
+    max-width: 300px;
     .back__svg {
       width: 50px;
       height: 50px;
@@ -23,7 +23,6 @@
       display: grid;
       place-items: center;
       cursor: pointer;
-      // padding-right: 1rem;
       &:hover {
         border-color: $blue-color;
         svg {
@@ -31,24 +30,34 @@
         }
       }
       svg {
-        fill: $blue-color;
+        width: 20px;
+        height: 20px;
+        fill: #222;
       }
     }
-    svg {
-      width: 20px;
-      height: 20px;
-      fill: #222;
+    span {
+      font-weight: 600;
+      font-size: 14px;
+      //padding-left: 10px;
+      a {
+        color: $blue-color;
+        cursor: pointer;
+        border-bottom: 1px solid $blue-color;
+        padding-bottom: 5px;
+      }
     }
   }
-  span {
-    font-weight: 600;
-    font-size: 14px;
-    padding-left: 10px;
-    a {
-      color: $blue-color;
-      cursor: pointer;
-      border-bottom: 1px solid $blue-color;
-      padding-bottom: 5px;
+  &__form {
+    margin-top: 1rem;
+    h1 {
+      font-size: 50px;
+      margin: 0;
+    }
+    p {
+      color: #96979b;
+    }
+    form {
+      margin-top: 2rem;
     }
   }
 }
