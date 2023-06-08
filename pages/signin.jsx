@@ -31,7 +31,7 @@ const signin = () => {
           <Formik>
             {(form) => (
               <Form>
-                <LoginInput />
+                <LoginInput icon="email" />
               </Form>
             )}
           </Formik>

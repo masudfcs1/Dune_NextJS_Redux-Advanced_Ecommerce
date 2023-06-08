@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-const index = () => {
-  return <div>index index</div>;
+const LoginInput = () => {
+  return <div>LoginInput</div>;
 };
 
-export default index;
+export default LoginInput;
