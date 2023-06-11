@@ -1,12 +1,28 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import React from "react";
 import Link from "next/link";
 import styles from "@/styles/signin.module.scss";
 import { BiLeftArrowAlt } from "react-icons/bi";
 import { Form, Formik } from "formik";
+import * as Yup from "yup";
 import LoginInput from "@/components/inputs/LoginInput";
+import React, { useState } from "react";
+
+const initialValues = {
+  login_email: "",
+  login_password: "",
+};
+
 const signin = () => {
+  const [user, setuser] = useState(initialValues);
+  const { login_email, login_password } = user;
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setuser({ ...user, [name]: value });
+  };
+
+  console.log(user);
   return (
     <div>
       {" "}
@@ -28,10 +44,31 @@ const signin = () => {
               Get access to one of the best Eshopping Services in the world.
             </p>
           </div>
-          <Formik>
+          <Formik
+          // enableReinitialize
+          // initialValues={{
+          //   login_email,
+          //   login_password,
+          // }}
+          // validationSchema={loginValidation}
+          >
             {(form) => (
               <Form>
-                <LoginInput icon="email" />
+                <LoginInput
+                  onChange={handleChange}
+                  name="login_email"
+                  type="text"
+                  icon="email"
+                  placeholder="Email your name"
+                />
+
+                <LoginInput
+                  onChange={handleChange}
+                  name="login_password"
+                  type="password"
+                  icon="password"
+                  placeholder="Password"
+                />
               </Form>
             )}
           </Formik>
