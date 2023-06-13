@@ -10,6 +10,14 @@ const nextConfig = {
   // images: {
   //   formats: ["image/webp"],
   // },
+
+  // experimental: {
+  //   forceSwcTransforms: true,
+  // },
+  images: {
+    loader: "custom",
+    loaderFile: "./public/logo.png",
+  },
 };
 
 module.exports = nextConfig;
