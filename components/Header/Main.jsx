@@ -14,7 +14,10 @@ const Main = () => {
         <Link href="/" legacyBehavior>
           <a className={styles.logo}>
             {" "}
-            <img src="/public/logo.png" alt="" />
+            {/* <img
+              src="C://Users/Masud%20Rana/Desktop/def1/public/logo.png"
+              alt=""
+            /> */}
             {/* <Image1 src="/public/logo.png" width="30" height="50" /> */}
           </a>
         </Link>

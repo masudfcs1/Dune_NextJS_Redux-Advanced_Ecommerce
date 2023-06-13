@@ -14,10 +14,10 @@ const nextConfig = {
   // experimental: {
   //   forceSwcTransforms: true,
   // },
-  images: {
-    loader: "custom",
-    loaderFile: "./public/logo.png",
-  },
+  // images: {
+  //   loader: "custom",
+  //   loaderFile: "./public/logo.png",
+  // },
 };
 
 module.exports = nextConfig;
