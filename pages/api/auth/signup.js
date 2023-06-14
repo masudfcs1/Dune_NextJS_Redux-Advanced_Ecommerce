@@ -4,6 +4,8 @@ import db from "@/utils/db";
 import { validateEmail } from "@/utils/validation";
 import User from "@/models/User";
 import { createActivationToken } from "@/utils/tokens";
+import { sendEmail } from "@/utils/sendEmails";
+import { disconnect } from "mongoose";
 
 const handler = nc();
 
@@ -35,7 +37,12 @@ handler.post(async (req, res) => {
       id: addedUser._id.toString(),
     });
     const url = `${process.env.BASE_URL}/activate/${activation_token}`;
-    res.send(url);
+    sendEmail(email, url, "", "Activate your account");
+
+    await db.disconnectDb();
+    res.json({
+      message: "Register sucess! Please activate your email to start.",
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
