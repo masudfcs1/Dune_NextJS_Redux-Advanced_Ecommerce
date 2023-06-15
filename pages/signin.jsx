@@ -55,9 +55,9 @@ const signin = ({ providers }) => {
   const registerValidation = Yup.object({
     name: Yup.string()
       .required("What's your name ?")
-      .min(2, "First name must be between 2 and 16 characters")
-      .max(16, "First name must be between 2 and 16 characters")
-      .matches(/^[^aA-zZ]/, "Numbers and special characters are not allowed."),
+      .min(2, "First name must be between 2 and 16 characters.")
+      .max(16, "First name must be between 2 and 16 characters.")
+      .matches(/^[aA-zZ]/, "Numbers and special characters are not allowed."),
     email: Yup.string()
       .required(
         "You'll need this when you log in and if you ever need to reset your password."
@@ -250,7 +250,7 @@ export async function getServerSideProps(context) {
 }
 
 //------
-
+//
 // import Header from "@/components/Header";
 // import Footer from "../components/footer";
 // import styles from "../styles/signin.module.scss";
@@ -299,7 +299,7 @@ export async function getServerSideProps(context) {
 //     const { name, value } = e.target;
 //     setUser({ ...user, [name]: value });
 //   };
-
+//
 //   const loginValidation = Yup.object({
 //     login_email: Yup.string()
 //       .required("Email address is required.")
