@@ -19,6 +19,7 @@ export default function Home({ country }) {
         {" "}
         <div className={styles.container}>
           <Main />
+          <FlashDeals />
         </div>{" "}
       </div>{" "}
       <Footer country={country} />{" "}
