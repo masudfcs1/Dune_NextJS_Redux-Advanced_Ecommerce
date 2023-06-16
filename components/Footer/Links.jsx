@@ -2,13 +2,16 @@
 import React from "react";
 import styles from "./styles.module.scss";
 import Link from "next/link";
+import Image from "next/image";
+import img from "@/public/logo2.png";
+
 export default function Links() {
   return (
     <div className={styles.footer__links}>
       {links.map((link, i) => (
         <ul>
           {i === 0 ? (
-            <img href="/" src="../../public/logo.png" alt="" />
+            <Image src={img} width="290" height="300" alt="logo" />
           ) : (
             <b> {link.heading} </b>
           )}

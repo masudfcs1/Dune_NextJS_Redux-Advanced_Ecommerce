@@ -3,7 +3,8 @@ import { RiSearch2Fill } from "react-icons/ri";
 import { FaOpencart } from "react-icons/fa";
 import styles from "./styles.module.scss";
 import Link from "next/link";
-import Image1 from "next/image";
+import Image from "next/image";
+import img from "@/public/logo2.png";
 import { useSelector } from "react-redux";
 
 const Main = () => {
@@ -18,6 +19,7 @@ const Main = () => {
               src="C://Users/Masud%20Rana/Desktop/def1/public/logo.png"
               alt=""
             /> */}
+            <Image src={img} width="100" height="100" alt="logo" />
             {/* <Image1 src="/public/logo.png" width="30" height="50" /> */}
           </a>
         </Link>
