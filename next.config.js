@@ -18,6 +18,16 @@ const nextConfig = {
   //   loader: "custom",
   //   loaderFile: "./public/logo.png",
   // },
+
+  // images: {
+  //   remotePatterns: [
+  //     {
+  //       protocol: "https",
+  //       hostname: "www.alicdn.com",
+  //       port: "",
+  //     },
+  //   ],
+  // },
 };
 
 module.exports = nextConfig;

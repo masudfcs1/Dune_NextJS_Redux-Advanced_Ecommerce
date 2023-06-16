@@ -1,6 +1,7 @@
 import styles from "./styles.module.scss";
 import React from "react";
 import MainSwiper from "./swiper";
+import Offers from "./offers";
 
 const Main = () => {
   return (
@@ -8,7 +9,7 @@ const Main = () => {
       <div className={styles.header}>header</div>
       <div className={styles.menu}>menu</div>
       <MainSwiper />
-      <div className={styles.offers}>offers</div>
+      <Offers />
       <div className={styles.user}>user</div>
     </div>
   );

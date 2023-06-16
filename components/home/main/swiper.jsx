@@ -13,7 +13,8 @@ import "swiper/css/navigation";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 import Image from "next/image";
-import img from "@/public/images/swiper/3.jpg";
+import img from "@/public/images/swiper/4.jpg";
+// import test from "@/public/test";
 
 export default function MainSwiper() {
   return (
@@ -35,35 +36,34 @@ export default function MainSwiper() {
       >
         {/* {[...Array(15).keys()].map((i) => (
           <SwiperSlide>
-            <img src={`../../../images/swiper/${i + 1}.jpg`} alt="" />
+            <Image
+              src={`/public/test/${i + 1}.jpg`}
+              width="900"
+              height="100"
+              alt="img"
+            />
           </SwiperSlide>
         ))} */}
-
         <SwiperSlide>
-          {/* <Image src={img} alt="pet" width="100" height="320" /> */}
-          {test.map((path) => {
+          <Image
+            src={img}
+            alt="pet"
+            width="400"
+            height="100+
+          "
+          />
+          {/* {test.map((path) => {
             return (
-              <div key={path}>
-                <Image
-                  src={`/${path}.jpg`}
-                  alt="pet"
-                  width="250"
-                  height="420"
-                />
-              </div>
-            );
-          })}
+              <Image
+                key={path.src}
+                src={`/${path}.jpg`}
+                alt="pet"
+                width="250"
+                height="420"
+              />
+            ); 
+          })}   */}
         </SwiperSlide>
-
-        {/* <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-        <SwiperSlide>Slide 10</SwiperSlide> */}
       </Swiper>
     </>
   );
