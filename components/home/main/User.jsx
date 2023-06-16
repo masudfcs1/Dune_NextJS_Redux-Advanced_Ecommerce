@@ -70,9 +70,11 @@ export default function User() {
           </li>
         </ul>
         <div className={styles.user__swiper}>
-          <img
-            src="https://assets.stickpng.com/images/5a5a6d2414d8c4188e0b088d.png"
+          <Image
+            src="/ban.png"
             alt=""
+            width={100}
+            height={100}
             className={styles.new}
           />
           <Swiper
@@ -87,9 +89,9 @@ export default function User() {
               marginTop: "1rem",
             }}
           >
-            {userSwiperArray.map((item) => (
-              <SwiperSlide>
-                <Link href="">
+            {userSwiperArray.map((item, i) => (
+              <SwiperSlide key={1}>
+                <Link legacyBehavior href="">
                   <img src={item.image} alt="" />
                 </Link>
               </SwiperSlide>
@@ -97,6 +99,13 @@ export default function User() {
           </Swiper>
         </div>
       </div>
+      {/* <Image
+        src="/userHeader.png"
+        alt=""
+        width={100}
+        height={100}
+        className={styles.user__footer}
+      /> */}
     </div>
   );
 }

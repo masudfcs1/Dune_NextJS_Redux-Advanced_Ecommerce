@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import axios from "axios";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Main from "@/components/home/main";
+import FlashDeals from "@/components/home/flashDeals/index";
 
 export default function Home({ country }) {
   const { data: session } = useSession();

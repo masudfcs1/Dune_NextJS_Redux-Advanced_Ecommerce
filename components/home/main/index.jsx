@@ -4,11 +4,12 @@ import MainSwiper from "./swiper";
 import Offers from "./offers";
 import Menu from "./Menu";
 import User from "./User";
+import Header from "./Header";
 
 const Main = () => {
   return (
     <div className={styles.main}>
-      <div className={styles.header}>header</div>
+      <Header />
       <Menu />
       <MainSwiper />
       <Offers />
