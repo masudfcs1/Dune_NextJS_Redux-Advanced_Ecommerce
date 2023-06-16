@@ -19,15 +19,14 @@ const nextConfig = {
   //   loaderFile: "./public/logo.png",
   // },
 
-  // images: {
-  //   remotePatterns: [
-  //     {
-  //       protocol: "https",
-  //       hostname: "www.alicdn.com",
-  //       port: "",
-  //     },
-  //   ],
-  // },
+  //   images: {
+  //     remotePatterns: [
+  //       {
+  //         protocol: "https",
+  //         hostname: "res.cloudinary.com",
+  //       },
+  //     ],
+  //   },
 };
 
 module.exports = nextConfig;
