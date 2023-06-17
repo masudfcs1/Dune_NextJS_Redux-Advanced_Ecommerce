@@ -22,6 +22,7 @@ import { useMediaQuery } from "react-responsive";
 import ProductsSwiper from "@/components/productsSwiper";
 import db from "@/utils/db";
 import Product from "@/models/Product";
+import ProductCard from "@/components/productCard";
 
 export default function Home({ country, products, bg }) {
   const { data: session } = useSession();
@@ -77,6 +78,12 @@ export default function Home({ country, products, bg }) {
             products={gamingSwiper}
             header="Gaming"
           />{" "}
+          <div className={styles.products}>
+            {" "}
+            {products.map((product) => (
+              <ProductCard product={product} key={product._id} />
+            ))}{" "}
+          </div>{" "}
         </div>{" "}
       </div>{" "}
       <Footer country={country} />{" "}
