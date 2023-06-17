@@ -27,6 +27,18 @@ const nextConfig = {
   //       },
   //     ],
   //   },
+
+  // images: {
+  //   remotePatterns: [
+  //     {
+  //       protocol: "https",
+  //       hostname: "img.ltwebstatic.com",
+  //       port: "http://localhost:3000/",
+  //       pathname: "/data/home.jsx",
+  //     },
+  //   ],
+  // },
+  //
 };
 
 module.exports = nextConfig;
