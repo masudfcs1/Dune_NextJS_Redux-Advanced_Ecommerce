@@ -18,8 +18,12 @@ import {
   women_swiper,
 } from "@/data/home";
 
-export default function Home({ country }) {
+import { useMediaQuery } from "react-responsive";
+import ProductsSwiper from "@/components/productsSwiper";
+export default function Home({ country, products, bg }) {
   const { data: session } = useSession();
+  const isMedium = useMediaQuery({ query: "(max-width:1300px)" });
+  const isMobile = useMediaQuery({ query: "(max-width:550px)" });
   console.log(session);
   return (
     <div>
@@ -30,8 +34,46 @@ export default function Home({ country }) {
           <Main />
           <FlashDeals />
           <div className={styles.home__category}>
-            <Category />
+            <Category
+              header="Dresses"
+              products={women_dresses}
+              background="#5a31f4"
+            />{" "}
+            {!isMedium && (
+              <Category
+                header="Shoes"
+                products={women_shoes}
+                background="#3c811f"
+              />
+            )}{" "}
+            {isMobile && (
+              <Category
+                header="Shoes"
+                products={women_shoes}
+                background="#3c811f"
+              />
+            )}{" "}
+            <Category
+              header="Accessories"
+              products={women_accessories}
+              background="#000"
+            />
           </div>{" "}
+          <ProductsSwiper
+            products={women_swiper}
+            bg="#5a35f4"
+            header="For Girl's"
+          />{" "}
+          <ProductsSwiper
+            products={homeImprovSwiper}
+            bg="#5a35f4"
+            header="Home products"
+          />{" "}
+          <ProductsSwiper
+            bg="#5a35f4"
+            products={gamingSwiper}
+            header="Gaming"
+          />{" "}
         </div>{" "}
       </div>{" "}
       <Footer country={country} />{" "}
