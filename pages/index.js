@@ -20,11 +20,14 @@ import {
 
 import { useMediaQuery } from "react-responsive";
 import ProductsSwiper from "@/components/productsSwiper";
+import db from "@/utils/db";
+import Product from "@/models/Product";
+
 export default function Home({ country, products, bg }) {
   const { data: session } = useSession();
   const isMedium = useMediaQuery({ query: "(max-width:1300px)" });
   const isMobile = useMediaQuery({ query: "(max-width:550px)" });
-  console.log(session);
+  console.log("product", products);
   return (
     <div>
       <Header country={country} />{" "}
@@ -82,6 +85,8 @@ export default function Home({ country, products, bg }) {
 }
 
 export async function getServerSideProps() {
+  db.connectDb();
+  let products = await Product.find().sort({ createdAt: -1 }).lean();
   let data = await axios
     .get("https://api.ipregistry.co/?key=c50k87tgjim45lbe")
     .then((res) => {
@@ -93,6 +98,7 @@ export async function getServerSideProps() {
   return {
     props: {
       // country: { name: data.name, flag: data.flag.emojitwo },
+      products: JSON.parse(JSON.stringify(products)),
       country: {
         name: "Bangladesh",
         flag: "https://cdn.ipregistry.co/flags/emojitwo/bd.svg",
