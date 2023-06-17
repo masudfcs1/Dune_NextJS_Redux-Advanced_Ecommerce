@@ -1,10 +1,7 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { MdFlashOn } from "react-icons/md";
-import React from "react";
-import Image from "next/image";
-
-export default function Card({ product }) {
+export default function FlashCard({ product }) {
   return (
     <div className={styles.card}>
       <div className={styles.card__img}>
@@ -18,7 +15,7 @@ export default function Card({ product }) {
       </div>
       <div className={styles.card__price}>
         <span>
-          USD {(product.price - product.price / product.discount).toFixed(2)} $
+          USD{(product.price - product.price / product.discount).toFixed(2)}$
         </span>
         <span>
           -USD
