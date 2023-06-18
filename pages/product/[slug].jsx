@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "@/styles/product.module.scss";
 import db from "@/utils/db";
 import Product from "@/models/Product";
@@ -8,7 +8,8 @@ import Category from "@/models/Category";
 import SubCategory from "@/models/SubCategory";
 import Head from "next/head";
 import MainSwiper from "@/components/productPage/mainSwiper";
-export default function product({ product }) {
+export default function product({ product, related }) {
+  const [activeImg, setActiveImg] = useState("");
   return (
     <>
       <Head>
@@ -24,7 +25,7 @@ export default function product({ product }) {
             ))}
           </div>
           <div className={styles.product__main}>
-            <MainSwiper images={product.images} />
+            <MainSwiper images={product.images} activeImg={activeImg} />
           </div>
         </div>
       </div>
@@ -58,7 +59,7 @@ export async function getServerSideProps(context) {
 
   let newProduct = {
     ...product,
-    // style,
+    style,
     images: subProduct.images,
     sizes: subProduct.sizes,
     discount: subProduct.discount,
