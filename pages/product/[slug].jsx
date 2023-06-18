@@ -8,6 +8,7 @@ import Category from "@/models/Category";
 import SubCategory from "@/models/SubCategory";
 import Head from "next/head";
 import MainSwiper from "@/components/productPage/mainSwiper";
+
 export default function product({ product, related }) {
   const [activeImg, setActiveImg] = useState("");
   return (
@@ -67,12 +68,16 @@ export async function getServerSideProps(context) {
     colors: product.subProducts.map((p) => {
       return p.color;
     }),
-    priceRange: subProduct.discount
-      ? `From ${(prices[0] - prices[0] / subProduct.discount).toFixed(2)} to ${(
-          prices[prices.length - 1] -
-          prices[prices.length - 1] / subProduct.discount
-        ).toFixed(2)}$`
-      : `From ${prices[0]} to ${prices[prices.length - 1]}$`,
+    // priceRange: subProduct.discount
+    //   ? `From ${(prices[0] - prices[0] / subProduct.discount).toFixed(2)} to ${(
+    //       prices[prices.length - 1] -
+    //       prices[prices.length - 1] / subProduct.discount
+    //     ).toFixed(2)}$`
+    //   : `From ${prices[0]} to ${prices[prices.length - 1]}$`,
+
+    priceRange:
+      prices > 1 ? `From ${prices[0]} to ${prices[prices.length - 1]}$` : "",
+
     price:
       subProduct.discount > 0
         ? (
