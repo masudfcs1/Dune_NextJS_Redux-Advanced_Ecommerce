@@ -8,17 +8,20 @@ import Category from "@/models/Category";
 import SubCategory from "@/models/SubCategory";
 import Head from "next/head";
 import MainSwiper from "@/components/productPage/mainSwiper";
+import Info from "@/components/productPage/infos";
+import Infos from "@/components/productPage/infos";
 
 export default function product({ product, related }) {
   const [activeImg, setActiveImg] = useState("");
   return (
-    <>
+    <div>
       <Head>
         <title>{product.name}</title>
       </Head>
-      {/* <Header country={country} /> */}
+      <Header country="" />
+      {/* <Header /> */}
       <div className={styles.product}>
-        <div className={styles.product__container}>
+        <div className={styles.container}>
           <div className={styles.path}>
             Home / {product.category.name}
             {product.subCategories.map((sub, i) => (
@@ -27,10 +30,12 @@ export default function product({ product, related }) {
           </div>
           <div className={styles.product__main}>
             <MainSwiper images={product.images} activeImg={activeImg} />
+            {/* <Infos images={product.images} activeImg={activeImg} /> */}
+            <Infos product={product} setActiveImg={setActiveImg} />
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -44,8 +49,9 @@ export async function getServerSideProps(context) {
   //......
   let product = await Product.findOne({ slug })
     .populate({ path: "category", model: Category })
-    .populate({ path: "subCategories", model: SubCategory })
+    .populate({ path: "subCategories._id", model: SubCategory })
     .lean();
+
   let subProduct = product.subProducts[style];
   let prices = subProduct.sizes
     .map((s) => {
@@ -60,7 +66,7 @@ export async function getServerSideProps(context) {
 
   let newProduct = {
     ...product,
-    style,
+    //  style,
     images: subProduct.images,
     sizes: subProduct.sizes,
     discount: subProduct.discount,
@@ -68,15 +74,15 @@ export async function getServerSideProps(context) {
     colors: product.subProducts.map((p) => {
       return p.color;
     }),
-    // priceRange: subProduct.discount
-    //   ? `From ${(prices[0] - prices[0] / subProduct.discount).toFixed(2)} to ${(
-    //       prices[prices.length - 1] -
-    //       prices[prices.length - 1] / subProduct.discount
-    //     ).toFixed(2)}$`
-    //   : `From ${prices[0]} to ${prices[prices.length - 1]}$`,
+    priceRange: subProduct.discount
+      ? `From ${(prices[0] - prices[0] / subProduct.discount).toFixed(2)} to ${(
+          prices[prices.length - 1] -
+          prices[prices.length - 1] / subProduct.discount
+        ).toFixed(2)}$`
+      : `From ${prices[0]} to ${prices[prices.length - 1]}$`,
 
-    priceRange:
-      prices > 1 ? `From ${prices[0]} to ${prices[prices.length - 1]}$` : "",
+    // priceRange:
+    //   prices > 1 ? `From ${prices[0]} to ${prices[prices.length - 1]}$` : "",
 
     price:
       subProduct.discount > 0
