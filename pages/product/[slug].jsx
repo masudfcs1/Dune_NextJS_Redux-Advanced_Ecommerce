@@ -10,6 +10,7 @@ import Head from "next/head";
 import MainSwiper from "@/components/productPage/mainSwiper";
 import Info from "@/components/productPage/infos";
 import Infos from "@/components/productPage/infos";
+import Reviews from "@/components/productPage/reviews";
 
 export default function product({ product, related }) {
   const [activeImg, setActiveImg] = useState("");
@@ -33,6 +34,7 @@ export default function product({ product, related }) {
             {/* <Infos images={product.images} activeImg={activeImg} /> */}
             <Infos product={product} setActiveImg={setActiveImg} />
           </div>
+          <Reviews />
         </div>
       </div>
     </div>
