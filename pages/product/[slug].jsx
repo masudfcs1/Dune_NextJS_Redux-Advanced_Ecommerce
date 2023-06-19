@@ -34,7 +34,7 @@ export default function product({ product, related }) {
             {/* <Infos images={product.images} activeImg={activeImg} /> */}
             <Infos product={product} setActiveImg={setActiveImg} />
           </div>
-          <Reviews />
+          <Reviews product={product} />
         </div>
       </div>
     </div>
@@ -95,6 +95,42 @@ export async function getServerSideProps(context) {
         : subProduct.sizes[size].price,
     priceBefore: subProduct.sizes[size].price,
     quantity: subProduct.sizes[size].qty,
+
+    // ratings: [
+    //   {
+    //     percentage: calculatePercentage("5"),
+    //   },
+    //   {
+    //     percentage: calculatePercentage("4"),
+    //   },
+    //   {
+    //     percentage: calculatePercentage("3"),
+    //   },
+    //   {
+    //     percentage: calculatePercentage("2"),
+    //   },
+    //   {
+    //     percentage: calculatePercentage("1"),
+    //   },
+    // ],
+
+    ratings: [
+      {
+        percentage: "5",
+      },
+      {
+        percentage: "4",
+      },
+      {
+        percentage: "3",
+      },
+      {
+        percentage: "2",
+      },
+      {
+        percentage: "1",
+      },
+    ],
   };
 
   //....
