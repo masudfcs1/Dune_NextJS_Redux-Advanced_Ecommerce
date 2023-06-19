@@ -1,15 +1,29 @@
 import styles from "./styles.module.scss";
-import React, { useState } from "react";
-import ReactImageMagnify from "react-image-magnify";
+import React, { useState, useEffect } from "react";
+//import ReactImageMagnify from "react-image-magnify";
 import { Rating } from "@mui/material";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { TbPlus, TbMinus } from "react-icons/tb";
 import { BsHandbagFill, BsHeart } from "react-icons/bs";
+import Share from "./share";
+import Accordian from "./Accordian";
 
 export default function Infos({ product, setActiveImg }) {
   const router = useRouter();
   const [size, setSize] = useState(router.query.size);
+  const [qty, setQty] = useState(1);
+
+  useEffect(() => {
+    setSize("");
+    setQty(1);
+  }, [router.query.style]);
+
+  useEffect(() => {
+    if (qty > product.quantity) {
+      setQty(product.quantity);
+    }
+  }, [router.query.size]);
 
   return (
     <div className={styles.infos}>
@@ -95,7 +109,7 @@ export default function Infos({ product, setActiveImg }) {
             ))}
         </div>
 
-        {/* <div className={styles.infos__qty}>
+        <div className={styles.infos__qty}>
           <button onClick={() => qty > 1 && setQty((prev) => prev - 1)}>
             <TbMinus />
           </button>
@@ -105,7 +119,26 @@ export default function Infos({ product, setActiveImg }) {
           >
             <TbPlus />
           </button>
-        </div> */}
+        </div>
+
+        <div className={styles.infos__actions}>
+          <button
+            disabled={product.quantity < 1}
+            style={{ cursor: `${product.quantity < 1 ? "not-allowed" : ""}` }}
+            // onClick={() => addToCartHandler()}
+          >
+            <BsHandbagFill />
+            <b>ADD TO CART</b>
+          </button>
+          {/* <button onClick={() => handleWishlist()}> */}
+          <button>
+            <BsHeart />
+            WISHLIST
+          </button>
+        </div>
+
+        <Share />
+        <Accordian details={[product.description, ...product.details]} />
       </div>
     </div>
   );
