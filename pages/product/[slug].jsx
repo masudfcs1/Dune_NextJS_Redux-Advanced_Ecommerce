@@ -11,6 +11,7 @@ import MainSwiper from "@/components/productPage/mainSwiper";
 import Info from "@/components/productPage/infos";
 import Infos from "@/components/productPage/infos";
 import Reviews from "@/components/productPage/reviews";
+import User from "@/models/User";
 
 export default function product({ product, related }) {
   const [activeImg, setActiveImg] = useState("");
@@ -52,6 +53,7 @@ export async function getServerSideProps(context) {
   let product = await Product.findOne({ slug })
     .populate({ path: "category", model: Category })
     .populate({ path: "subCategories._id", model: SubCategory })
+    .populate({ path: "reviews.reviewBy", model: User })
     .lean();
 
   let subProduct = product.subProducts[style];
@@ -131,6 +133,19 @@ export async function getServerSideProps(context) {
         percentage: "1",
       },
     ],
+    reviews: product.reviews.reverse(),
+    allSizes: product.subProducts
+      .map((p) => {
+        return p.sizes;
+      })
+      .flat()
+      .sort((a, b) => {
+        return a.size - b.size;
+      })
+      .filter(
+        (element, index, array) =>
+          array.findIndex((el2) => el2.size === element.size) === index
+      ),
   };
 
   //....
