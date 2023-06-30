@@ -36,5 +36,5 @@ export default function Table({ reviews, allSizes, colors }) {
         />
       </div>
     </div>
-  );[=]
+  );
 }
